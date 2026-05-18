@@ -72,11 +72,16 @@ nav {
   backdrop-filter: blur(8px);
 }
 .logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  width: 132px;
   color: var(--text);
+  text-decoration: none;
+}
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .nav-links {
   display: flex;
@@ -1034,6 +1039,7 @@ footer {
 }
 footer a { color:var(--text-soft); text-decoration:none; transition:color 0.2s; }
 footer a:hover { color:var(--slate); }
+.footer-logo { width: 112px; opacity: 0.88; }
 
 /* ── SCROLL REVEAL ── */
 .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.75s ease, transform 0.75s ease; }

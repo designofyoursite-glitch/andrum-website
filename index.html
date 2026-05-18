@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrum — A Space to Breathe</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- BLOBS -->
+<div class="blob-layer">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<!-- PARTICLES -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Andrum</div>
+  <div class="nav-links">
+    <a href="#how-it-works" class="nav-link">How it works</a>
+    <a href="#practices" class="nav-link">Practices</a>
+    <a href="#reviews" class="nav-link">Reviews</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#final" class="nav-cta">Try free</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-backdrop" id="menu-backdrop"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-tag">Andrum</div>
+    <nav class="mobile-nav-links">
+      <a href="#how-it-works" class="mobile-nav-link">How it works</a>
+      <a href="#practices" class="mobile-nav-link">Practices</a>
+      <a href="#reviews" class="mobile-nav-link">Reviews</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+    </nav>
+    <div class="mobile-menu-cta">
+      <a href="#final" class="btn-primary" style="display:block;text-align:center;">Try free practice</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="sphere-wrap">
+    <div class="sphere-ring sphere-ring-3"></div>
+    <div class="sphere-ring sphere-ring-2"></div>
+    <div class="sphere-ring sphere-ring-1"></div>
+    <div class="sphere"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">A space to breathe</div>
+    <h1 class="hero-title">He's read it.<br>He hasn't replied.<br><em>Here's what to do right now.</em></h1>
+    <p class="hero-sub">7 guided breathwork practices, each built for a different hard moment — none longer than 7 minutes. Press play, follow the voice. It leads you back to yourself.</p>
+    <div class="hero-ctas">
+      <a href="#final" class="btn-primary">Try the first practice free</a>
+      <span class="note">Free access — no card.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MIRROR ─── -->
+<section class="mirror">
+  <div class="section-tag reveal">Right now</div>
+  <h2 class="mirror-title reveal">Is this you <em>right now?</em></h2>
+  <div class="mirror-grid reveal">
+    <div class="mirror-item">Sent it. No reply. Refreshing anyway.</div>
+    <div class="mirror-item">He's active. Still nothing.</div>
+    <div class="mirror-item">One fight. Now: silence.</div>
+    <div class="mirror-item">The text is written. Don't send it.</div>
+    <div class="mirror-item">Jealousy with no off switch.</div>
+    <div class="mirror-item">Body in panic. Brain useless.</div>
+    <div class="mirror-item">2am. Same thought. Again.</div>
+    <div class="mirror-item">Froze. Can't feel anything.</div>
+    <div class="mirror-item">Why am I like this?</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── CTA INTERRUPT ─── -->
+<section class="cta-interrupt reveal">
+  <h2>Nothing to figure out.<br>Just press play.</h2>
+  <a href="#final" class="btn-primary">Try the free practice</a>
+</section>
+
+<!-- ─── AUDIO ─── -->
+<section class="audio-section reveal">
+  <p style="font-size:15px;color:var(--text-soft);text-align:center;margin-bottom:36px;letter-spacing:0.03em">Not sure yet? Hear what it sounds like.</p>
+  <div class="audio-box">
+    <div class="audio-tag">10-second preview</div>
+    <div class="audio-title">Practice 1 — After a Triggering Message</div>
+    <button class="play-btn" onclick="var isPlay = this.innerHTML === '▶'; this.innerHTML = isPlay ? '⏸' : '▶'; this.style.paddingLeft = isPlay ? '0' : '4px'">▶</button>
+    <p class="audio-desc">A warm voice. Unhurried. Like someone who's been exactly where you are right now. That's what guides you through every practice.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── WHAT HAPPENS ─── -->
+<section class="what-happens" id="how-it-works">
+  <div class="section-tag reveal">7 minutes</div>
+  <h2 class="reveal">Here's what you<br>may notice.</h2>
+  <p class="body-p reveal">Something in your breathing may start to slow. A place in your chest — tight until now — might begin to loosen. You may notice your jaw unclenching. You didn't realise it was clenched.</p>
+  <p class="body-p reveal">The thought spiral may pause. Not because anything is solved. Because your body has somewhere else to go. You may find just enough space not to act from panic.</p>
+  <div class="pull-quote reveal">This won't change what's happening between you. It will get you through the next 10 minutes steady — with your head clear enough to choose what you do next.</div>
+</section>
+
+<!-- ─── WHY WORKS ─── -->
+<section class="why-works">
+  <div class="why-inner">
+    <div class="section-tag reveal">The science</div>
+    <h2 class="reveal">Why breathing actually works<br>when nothing else does.</h2>
+    <p class="body-p reveal">When anxiety hits this hard, the part of you that reasons and problem-solves goes quiet. That's not weakness. That's biology. The way back isn't through your thoughts. It's through your body. And breath is the most direct path — a longer exhale than inhale sends a signal your body already knows how to receive: <span style="color:var(--text)">the danger is passing. You can come down now.</span></p>
+    <div class="objection reveal">
+      <div class="objection-q">"Breathing doesn't work for me."</div>
+      <p>That makes sense. Most breathing advice isn't built for this — it's built for mild stress, not for the moments when your whole system has already decided something is very wrong. These practices are different: a voice guides you through every second so you never have to figure anything out. You just follow. The voice does the rest.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SCENARIOS ─── -->
+<section class="scenarios" id="practices">
+  <div class="section-tag reveal">Seven practices</div>
+  <h2 class="reveal">Seven moments.<br>One for tonight.</h2>
+  <div class="cards-grid">
+    <div class="card reveal">
+      <div class="card-num">Practice 01</div>
+      <div class="card-title">After a Triggering Message or Conversation</div>
+      <p class="card-body">Your phone just delivered a gut-punch. Chest tight, hands shaking, every thought at once. A double inhale followed by a long exhale interrupts the panic cycle and slows your heart rate before your fingers do something you'll regret.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-num">Practice 02</div>
+      <div class="card-title">When Thoughts Won't Stop Looping</div>
+      <p class="card-body">You've replayed the conversation 40 times. It's 2am and your brain won't stop. Box breathing interrupts the loop — not by solving it, but by giving your brain a rhythm to follow instead.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-num">Practice 03</div>
+      <div class="card-title">The 'Why Am I Like This' Spiral</div>
+      <p class="card-body">You've shut down. The shame is louder than the anxiety. You feel small and wrong and not enough. A slow, rhythmic breath brings you back into your body and out of collapse — slowly, without forcing anything.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-num">Practice 04</div>
+      <div class="card-title">When You Can See He's Online</div>
+      <p class="card-body">He liked another girl's posts. He hasn't replied to yours. The jealousy is physical — stomach, throat, jaw. An extended exhale pattern brings the threat response down without requiring you to stop feeling what you're feeling.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-num">Practice 05</div>
+      <div class="card-title">When You're About to Send Something</div>
+      <p class="card-body">Choose this one when your body can't be still — when there's adrenaline in your limbs and sitting down feels impossible. You walk while you breathe. The adrenaline burns off as you move. The urge passes. You come back clear.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-num">Practice 06</div>
+      <div class="card-title">When You've Gone Numb</div>
+      <p class="card-body">You're not panicking. You're frozen. Staring. Disconnected. You can't cry and you can't move. A three-part gentle breath slowly brings you back online — no forcing, no intensity, just a quiet return.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-num">Practice 07</div>
+      <div class="card-title">When Anger Is Rising</div>
+      <p class="card-body">Choose this when the anger is already at the surface. It starts with a forceful exhale to give the anger somewhere to go — a physical release of pressure — then downshifts so you can speak from strength, not explosion.</p>
+    </div>
+  </div>
+  <div class="cards-cta reveal">
+    <p>Found yours?</p>
+    <a href="#final" class="btn-primary">Try the free practice</a>
+  </div>
+</section>
+
+<!-- ─── COMPARISON ─── -->
+<section class="comparison">
+  <div class="comparison-inner">
+    <div class="section-tag reveal">Different nights</div>
+    <h2 class="reveal">Freeze and panic<br>aren't the same state.</h2>
+    <p class="comp-sub reveal">Your body needs a different signal for each one. That's why one practice isn't enough.</p>
+    <table class="comp-table reveal">
+      <tr><td>Panic after a message</td><td>Sharp, fast interrupt to stop the spiral</td></tr>
+      <tr><td>Racing thoughts / loop</td><td>Rhythm to anchor the mind</td></tr>
+      <tr><td>Shame / collapse</td><td>Slow, rhythmic breath, gentle activation</td></tr>
+      <tr><td>Jealousy / threat</td><td>Extended exhale, gradual release</td></tr>
+      <tr><td>Urge to text / adrenaline</td><td>Movement + breath to burn the charge</td></tr>
+      <tr><td>Freeze / numbness</td><td>Slow 3-part breath, zero force</td></tr>
+      <tr><td>Anger</td><td>Release valve first, then downshift</td></tr>
+    </table>
+    <div class="price-card reveal">
+      <div class="price-num"><sup>$</sup>19</div>
+      <p class="price-desc" style="margin-top:12px;">Seven tools for seven different hard moments.<br>Less than one therapy co-pay. Available at 2am when your therapist isn't.</p>
+      <a href="#final" class="btn-primary">Get all 7 practices</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT YOU GET ─── -->
+<section class="what-get">
+  <div class="section-tag reveal">What's inside</div>
+  <h2 class="reveal">Here's what happens<br>when you press the button.</h2>
+  <p class="body-p reveal">You press the button. One email arrives. One link. You see 7 practices, each named for the state you're in right now. You press play. A calm voice starts — warm, unhurried, like someone who's been exactly where you are. You follow it. Nothing else is required.</p>
+  <div class="get-list reveal">
+    <div class="get-item">
+      <div class="get-icon">7</div>
+      <div class="get-text">
+        <strong>7 guided breathwork practices (5–10 min each)</strong>
+        <span>Each labeled by state — you know exactly which one to press</span>
+      </div>
+    </div>
+    <div class="get-item">
+      <div class="get-icon">∞</div>
+      <div class="get-text">
+        <strong>Lifetime access — yours to keep</strong>
+        <span>Not a subscription. You buy it once. It's there every time a hard time comes — and it will.</span>
+      </div>
+    </div>
+    <div class="get-item">
+      <div class="get-icon">↓</div>
+      <div class="get-text">
+        <strong>No app to download</strong>
+        <span>No playlist to navigate. One list, one button.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── TRUST ─── -->
+<section class="trust" id="about">
+  <div class="trust-inner">
+    <div class="section-tag reveal">Who made this</div>
+    <h2 class="reveal">Who made this and why.</h2>
+    <p class="body-p reveal">We've been exactly where you are. Not as practitioners observing from the outside — as the person refreshing the screen at midnight. As the one who went numb mid-conversation and couldn't explain why. As the one who stayed in something that was hurting her because leaving felt like losing herself.</p>
+    <p class="body-p reveal">Between the three of us, we've lived anxious attachment through relationships that ranged from painful to genuinely unsafe. We know what it's like when your body won't come down. When the spiral has already started and there's nothing to hold onto.</p>
+    <div class="pull-quote reveal">That's why we built this. Not from a framework. From the floor.</div>
+    <p class="body-p reveal">These practices are what we needed and couldn't find — something that meets you in the actual moment, with a voice that guides you through it step by step. No figuring out. No getting it wrong. Just follow.</p>
+    <div class="team-section reveal">
+      <div class="team-img-wrap">
+        <img src="assets/images/team-photo.jpg" alt="Team photo" class="team-img">
+        <div class="team-img-overlay"></div>
+      </div>
+      <div class="team-caption">
+        <div class="team-names-block">
+          <div class="team-name-item">
+            <span class="team-name">Ksu</span>
+            <span class="team-role">certified breathwork facilitator</span>
+          </div>
+          <div class="team-name-divider"></div>
+          <div class="team-name-item">
+            <span class="team-name">Bec</span>
+            <span class="team-role">certified breathwork facilitator</span>
+          </div>
+          <div class="team-name-divider"></div>
+          <div class="team-name-item">
+            <span class="team-name">Masha</span>
+            <span class="team-role">co-founder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section class="reviews" id="reviews">
+  <div class="section-tag reveal">Real women</div>
+  <h2 class="reveal">What happened<br>when they pressed play.</h2>
+  <div class="reviews-grid">
+    <div class="review reveal"><p class="review-text">"I almost threw my phone across the room. I put on practice one instead. By like minute four my hands actually stopped shaking. He still hadn't replied. I still didn't know anything. But I could breathe without it hurting. That's not nothing."</p><div class="review-author">Jess, 29</div></div>
+    <div class="review reveal"><p class="review-text">"I was in the parking lot of a CVS at 11pm with my car running, drafting a message I'd been rewriting for an hour. I did the 'urge to text' practice sitting there. I didn't send it. I went home. Still don't know if that was the right call but at least it was MY call and not my panic's."</p><div class="review-author">Maya, 31</div></div>
+    <div class="review reveal"><p class="review-text">"After practice 3 my jaw unclenched and I realized I'd been clenching it for days. I didn't even know. It's been doing that this whole time."</p><div class="review-author">Rachel, 27</div></div>
+    <div class="review reveal"><p class="review-text">"I've tried box breathing before and it always made me more panicked, like I was suffocating. This was different. The voice keeps you from going too fast. By the time I noticed the tightness in my sternum was actually loosening I was kind of shocked. It loosened. I didn't think it would."</p><div class="review-author">Danielle, 34</div></div>
+    <div class="review reveal"><p class="review-text">"I checked his instagram four times in twenty minutes. Then I put on practice four. I didn't check it again that night. The wanting wasn't loud enough to actually move my hand anymore."</p><div class="review-author">Serena, 26</div></div>
+    <div class="review reveal"><p class="review-text">"It's like it was made specifically for those 45 minutes after you send something and hear nothing back. Someone actually gets it."</p><div class="review-author">Chloe, 30</div></div>
+    <div class="review reveal"><p class="review-text">"The intro to practice two mentions 'replaying it like maybe you'll find a different ending.' I actually started crying. Not because I was sad but because someone named the exact thing I was doing and didn't make me feel insane for it."</p><div class="review-author">Tara, 33</div></div>
+    <div class="review reveal"><p class="review-text">"I kept waiting for the part where the voice would tell me I need to heal my inner child or something. It never came. Just: here's what's happening in your body, here's what we're going to do about it. Bless."</p><div class="review-author">Priya, 32</div></div>
+    <div class="review reveal"><p class="review-text">"I did the first practice free and genuinely felt something shift so I bought the full pack like three minutes later. I need the jealousy one. I need the freeze one. There have been nights I can't even cry, I just go blank. I need something for that too."</p><div class="review-author">Lauren, 29</div></div>
+    <div class="review reveal"><p class="review-text">"$19 for actually different tools is insane. I've spent more than that on one hour of talking about my feelings."</p><div class="review-author">Mia, 35</div></div>
+    <div class="review reveal"><p class="review-text">"I was pacing my apartment at midnight with no idea what to do with my body and realized: there is literally a practice for this exact thing. A practice designed for when you're pacing and can't sit still. I need all seven of these. Obviously."</p><div class="review-author">Bri, 27</div></div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta" id="final">
+  <div class="final-sphere-wrap">
+    <div class="final-sphere-ring final-sphere-ring-2"></div>
+    <div class="final-sphere-ring final-sphere-ring-1"></div>
+    <div class="final-sphere"></div>
+  </div>
+  <div class="final-inner">
+    <h2>You're still here.<br>Which means part of you<br><em>already knows.</em></h2>
+    <p>You've read what it does. You've read what other women felt.<br>The only thing left is to find out what happens in your body.</p>
+    <div class="cta-stack">
+      <a href="#" class="btn-primary">Try the first practice free — no card</a>
+      <p style="font-size:13px;color:var(--text-soft);margin:0">Most women feel something shift within the first 4 minutes.</p>
+      <a href="#" class="btn-outline">Get all 7 practices — $19</a>
+    </div>
+    <p class="guarantee">If you try it and feel nothing, you can get your money back. No questions.<br>One purchase. Lifetime access. Yours at 2am, every time.</p>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="logo" style="font-size:18px">Andrum</div>
+  <div style="display:flex;gap:32px">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

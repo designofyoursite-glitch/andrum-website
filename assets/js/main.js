@@ -80,6 +80,52 @@ document.querySelectorAll('.mirror-item').forEach((m,i) => m.style.transitionDel
   });
 })();
 
+// ── FREE PRACTICE MODAL ──
+(function(){
+  var modal = document.getElementById('free-practice-modal');
+  if(!modal) return;
+
+  var triggers = document.querySelectorAll('.js-free-practice-modal');
+  var closeButtons = modal.querySelectorAll('[data-modal-close]');
+  var panel = modal.querySelector('.free-practice-modal-panel');
+  var previousFocus = null;
+
+  function openModal(event){
+    if(event) event.preventDefault();
+    previousFocus = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    var firstInput = modal.querySelector('input, textarea, select, button, a');
+    setTimeout(function(){
+      (firstInput || panel).focus();
+    }, 80);
+  }
+
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if(previousFocus && typeof previousFocus.focus === 'function') {
+      previousFocus.focus();
+    }
+  }
+
+  triggers.forEach(function(trigger){
+    trigger.addEventListener('click', openModal);
+  });
+
+  closeButtons.forEach(function(button){
+    button.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', function(event){
+    if(event.key === 'Escape' && modal.classList.contains('open')){
+      closeModal();
+    }
+  });
+})();
+
 // ── BREATH LABEL CYCLE ──
 const label = document.querySelector('.breath-label');
 if(label){

@@ -123,10 +123,25 @@
 <section class="audio-section reveal">
   <p style="font-size:15px;color:var(--text-soft);text-align:center;margin-bottom:36px;letter-spacing:0.03em">Not sure yet? Hear what it sounds like.</p>
   <div class="audio-box">
-    <div class="audio-tag">10-second preview</div>
+    <div class="audio-tag">20-second preview</div>
     <div class="audio-title">Practice 1 — After a Triggering Message</div>
-    <div class="play-btn static-play" aria-hidden="true">▶</div>
-    <p class="audio-status">Audio preview coming soon.</p>
+    <div class="preview-player" data-audio-player>
+      <button class="preview-play" type="button" data-audio-toggle aria-label="Play audio preview">
+        <span class="preview-play-icon" aria-hidden="true"></span>
+      </button>
+      <div class="preview-player-body">
+        <div class="preview-player-top">
+          <span>Listen now</span>
+          <span data-audio-time>0:00 / 0:00</span>
+        </div>
+        <div class="preview-progress" data-audio-seek role="slider" aria-label="Audio progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+          <div class="preview-progress-fill" data-audio-progress></div>
+        </div>
+      </div>
+      <audio class="audio-player" preload="metadata">
+        <source src="assets/audio/sos-practice-preview.mp3" type="audio/mpeg">
+      </audio>
+    </div>
     <p class="audio-desc">A warm voice. Unhurried. Like someone who's been exactly where you are right now. That's what guides you through every practice.</p>
   </div>
 </section>
@@ -383,13 +398,18 @@
 </section>
 
 <!-- ─── FOOTER ─── -->
-<footer>
+<footer class="site-footer">
   <a href="#" class="logo footer-logo" aria-label="Andrum home">
     <img src="assets/images/andrum-logo.svg" alt="Andrum">
   </a>
-  <div style="display:flex;gap:32px">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
+  <div class="footer-links">
+    <a href="legal/privacy-policy.html">Privacy</a>
+    <a href="legal/terms-of-use.html">Terms of Use</a>
+    <a href="legal/terms-of-sale.html">Terms of Sale</a>
+    <a href="legal/refund-policy.html">Refunds</a>
+    <a href="legal/medical-psychological-disclaimer.html">Disclaimer</a>
+    <a href="legal/cookie-policy.html">Cookies</a>
+    <a href="mailto:hello@andrum.space">Contact</a>
   </div>
 </footer>
 

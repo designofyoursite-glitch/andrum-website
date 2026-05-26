@@ -126,6 +126,77 @@ document.querySelectorAll('.mirror-item').forEach((m,i) => m.style.transitionDel
   });
 })();
 
+// ── AUDIO PREVIEW PLAYER ──
+(function(){
+  var player = document.querySelector('[data-audio-player]');
+  if(!player) return;
+
+  var audio = player.querySelector('audio');
+  var toggle = player.querySelector('[data-audio-toggle]');
+  var progress = player.querySelector('[data-audio-progress]');
+  var seek = player.querySelector('[data-audio-seek]');
+  var time = player.querySelector('[data-audio-time]');
+
+  function formatTime(value){
+    if(!Number.isFinite(value)) return '0:00';
+    var minutes = Math.floor(value / 60);
+    var seconds = Math.floor(value % 60).toString().padStart(2, '0');
+    return minutes + ':' + seconds;
+  }
+
+  function updateProgress(){
+    var duration = audio.duration || 0;
+    var percent = duration ? (audio.currentTime / duration) * 100 : 0;
+    progress.style.width = percent + '%';
+    seek.setAttribute('aria-valuenow', Math.round(percent));
+    time.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(duration);
+  }
+
+  function seekTo(clientX){
+    var rect = seek.getBoundingClientRect();
+    var ratio = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1);
+    if(audio.duration) {
+      audio.currentTime = audio.duration * ratio;
+    }
+  }
+
+  toggle.addEventListener('click', function(){
+    if(audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  seek.addEventListener('click', function(event){
+    seekTo(event.clientX);
+  });
+
+  seek.addEventListener('keydown', function(event){
+    if(event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    var step = event.key === 'ArrowRight' ? 5 : -5;
+    audio.currentTime = Math.min(Math.max(audio.currentTime + step, 0), audio.duration || 0);
+  });
+
+  audio.addEventListener('loadedmetadata', updateProgress);
+  audio.addEventListener('timeupdate', updateProgress);
+  audio.addEventListener('play', function(){
+    player.classList.add('playing');
+    toggle.setAttribute('aria-label', 'Pause audio preview');
+  });
+  audio.addEventListener('pause', function(){
+    player.classList.remove('playing');
+    toggle.setAttribute('aria-label', 'Play audio preview');
+  });
+  audio.addEventListener('ended', function(){
+    player.classList.remove('playing');
+    audio.currentTime = 0;
+    updateProgress();
+  });
+  updateProgress();
+})();
+
 // ── BREATH LABEL CYCLE ──
 const label = document.querySelector('.breath-label');
 if(label){

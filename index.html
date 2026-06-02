@@ -11,6 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css?v=20260520-1">
 <meta name="facebook-domain-verification" content="3xx6dzc41m1uela67o3lx78pn9i4a4" />
+<!-- Google tag (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SE2VTYM7L8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SE2VTYM7L8');
+</script>
+<!-- End Google tag (GA4) -->
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -233,7 +242,7 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
     <p>Start with the first practice.</p>
     <span>Try one guided SOS practice for free and feel how the method works in your body.</span>
     <a href="#free-practice" class="btn-primary js-free-practice-modal">Try the first practice free</a>
-    <a href="https://checkout.teachable.com/secure/2716567/checkout/order_9qcwvskk" class="text-link">Or get all 7 practices for $19</a>
+    <a href="https://checkout.teachable.com/secure/2716567/checkout/order_9qcwvskk" class="text-link" data-checkout-link>Or get all 7 practices for $19</a>
   </div>
 </section>
 
@@ -478,6 +487,42 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
 </div>
 
 <script>
+  function trackGoogleEvent(eventName, params, callback) {
+    if (typeof window.gtag !== 'function') {
+      if (typeof callback === 'function') callback();
+      return false;
+    }
+
+    var eventParams = Object.assign({
+      event_category: 'engagement',
+      page_location: window.location.href,
+      page_title: document.title
+    }, params || {});
+
+    var debugParams = new URLSearchParams(window.location.search);
+    if (
+      debugParams.get('debug_mode') === 'true' ||
+      debugParams.get('ga_debug') === '1' ||
+      window.location.hostname === 'localhost' ||
+      window.location.protocol === 'file:'
+    ) {
+      eventParams.debug_mode = true;
+    }
+
+    if (typeof callback === 'function') {
+      var callbackWasCalled = false;
+      eventParams.event_callback = function() {
+        if (callbackWasCalled) return;
+        callbackWasCalled = true;
+        callback();
+      };
+      eventParams.event_timeout = 800;
+    }
+
+    window.gtag('event', eventName, eventParams);
+    return true;
+  }
+
   function trackMetaLeadOnce() {
     if (window.__andrumMetaLeadTracked) return false;
     window.__andrumMetaLeadTracked = true;
@@ -492,7 +537,11 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
 
   function ml_webform_success_41481387() {
     var leadTracked = trackMetaLeadOnce();
+    var redirectStarted = false;
     var redirectToFreePractice = function() {
+      if (redirectStarted) return;
+      redirectStarted = true;
+
       try {
         window.top.location.href = 'https://andrumspace.teachable.com/courses/sos-practices-collection-of-7-guided-breathwork-audios/lectures/65814234';
       } catch (e) {
@@ -500,31 +549,39 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
       }
     };
 
-    if (leadTracked) {
-      setTimeout(redirectToFreePractice, 150);
-      return;
-    }
-
-    redirectToFreePractice();
+    trackGoogleEvent('email_submitted', {
+      method: 'mailerlite',
+      form_id: '41481387'
+    }, function() {
+      setTimeout(redirectToFreePractice, leadTracked ? 150 : 0);
+    });
   }
 
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-checkout-link]').forEach(function(link) {
       link.addEventListener('click', function(event) {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-        if (typeof window.fbq !== 'function') return;
 
         event.preventDefault();
-        window.fbq('track', 'InitiateCheckout');
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'InitiateCheckout');
+        }
 
-        setTimeout(function() {
+        var navigateToCheckout = function() {
           window.location.href = link.href;
-        }, 150);
+        };
+
+        trackGoogleEvent('buy_now_click', {
+          link_url: link.href,
+          link_text: link.textContent.trim()
+        }, function() {
+          setTimeout(navigateToCheckout, 150);
+        });
       });
     });
   });
 </script>
-<script src="assets/js/main.js?v=20260520-1"></script>
+<script src="assets/js/main.js?v=20260602-1"></script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
 <script>
   fetch("https://assets.mailerlite.com/jsonp/2360637/forms/187881635271673818/takel");

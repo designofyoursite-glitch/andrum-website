@@ -92,6 +92,12 @@ document.querySelectorAll('.mirror-item').forEach((m,i) => m.style.transitionDel
 
   function openModal(event){
     if(event) event.preventDefault();
+    if(typeof window.trackGoogleEvent === 'function') {
+      window.trackGoogleEvent('free_practice_click', {
+        link_text: event && event.currentTarget ? event.currentTarget.textContent.trim() : '',
+        link_url: event && event.currentTarget ? event.currentTarget.href : '#free-practice'
+      });
+    }
     previousFocus = document.activeElement;
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');

@@ -92,7 +92,7 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
     <div class="hero-ctas">
       <a href="#free-practice" class="btn-primary js-free-practice-modal">Try the first practice free</a>
       <span class="note">No card needed · 6–8 minutes · Start when the wave hits</span>
-      <a href="https://checkout.teachable.com/secure/2716567/checkout/order_9qcwvskk" class="text-link">Get all 7 practices — $19</a>
+      <a href="https://checkout.teachable.com/secure/2716567/checkout/order_9qcwvskk" class="text-link" data-checkout-link>Get all 7 practices — $19</a>
     </div>
   </div>
 </section>
@@ -277,7 +277,7 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
             <li>Use anytime, from your phone</li>
             <li>Body-first support when anxiety hits</li>
           </ul>
-          <a href="https://checkout.teachable.com/secure/2716567/checkout/order_9qcwvskk" class="btn-outline">Get all 7 practices</a>
+          <a href="https://checkout.teachable.com/secure/2716567/checkout/order_9qcwvskk" class="btn-outline" data-checkout-link>Get all 7 practices</a>
         </div>
       </div>
     </div>
@@ -409,7 +409,7 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
     <div class="cta-stack">
       <a href="#free-practice" class="btn-primary js-free-practice-modal">Try the first practice free</a>
       <p style="font-size:13px;color:var(--text-soft);margin:0">No card needed · 6–8 minutes · Start when the wave hits</p>
-      <a href="https://checkout.teachable.com/secure/2716567/checkout/order_9qcwvskk" class="btn-outline">Get all 7 practices — $19</a>
+      <a href="https://checkout.teachable.com/secure/2716567/checkout/order_9qcwvskk" class="btn-outline" data-checkout-link>Get all 7 practices — $19</a>
     </div>
     <p class="guarantee">Try it in your body first. Feel the shift before you decide.</p>
   </div>
@@ -478,13 +478,51 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
 </div>
 
 <script>
-  function ml_webform_success_41481387() {
-    try {
-      window.top.location.href = 'https://andrumspace.teachable.com/courses/sos-practices-collection-of-7-guided-breathwork-audios/lectures/65814234';
-    } catch (e) {
-      window.location.href = 'https://andrumspace.teachable.com/courses/sos-practices-collection-of-7-guided-breathwork-audios/lectures/65814234';
+  function trackMetaLeadOnce() {
+    if (window.__andrumMetaLeadTracked) return false;
+    window.__andrumMetaLeadTracked = true;
+
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead');
+      return true;
     }
+
+    return false;
   }
+
+  function ml_webform_success_41481387() {
+    var leadTracked = trackMetaLeadOnce();
+    var redirectToFreePractice = function() {
+      try {
+        window.top.location.href = 'https://andrumspace.teachable.com/courses/sos-practices-collection-of-7-guided-breathwork-audios/lectures/65814234';
+      } catch (e) {
+        window.location.href = 'https://andrumspace.teachable.com/courses/sos-practices-collection-of-7-guided-breathwork-audios/lectures/65814234';
+      }
+    };
+
+    if (leadTracked) {
+      setTimeout(redirectToFreePractice, 150);
+      return;
+    }
+
+    redirectToFreePractice();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-checkout-link]').forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (typeof window.fbq !== 'function') return;
+
+        event.preventDefault();
+        window.fbq('track', 'InitiateCheckout');
+
+        setTimeout(function() {
+          window.location.href = link.href;
+        }, 150);
+      });
+    });
+  });
 </script>
 <script src="assets/js/main.js?v=20260520-1"></script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>

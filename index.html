@@ -535,12 +535,28 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
     return false;
   }
 
+  function trackMetaCustomEvent(eventName, params) {
+    if (typeof window.fbq !== 'function') return false;
+
+    window.fbq('trackCustom', eventName, params || {});
+    return true;
+  }
+
   function ml_webform_success_41481387() {
     var leadTracked = trackMetaLeadOnce();
     var redirectStarted = false;
     var redirectToFreePractice = function() {
       if (redirectStarted) return;
       redirectStarted = true;
+
+      trackMetaCustomEvent('RedirectToPractice', {
+        destination: 'teachable_free_practice',
+        form_id: '41481387'
+      });
+      trackGoogleEvent('redirect_to_practice', {
+        destination: 'teachable_free_practice',
+        form_id: '41481387'
+      });
 
       try {
         window.top.location.href = 'https://andrumspace.teachable.com/courses/sos-practices-collection-of-7-guided-breathwork-audios/lectures/65814234';
@@ -558,6 +574,26 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
   }
 
   document.addEventListener('DOMContentLoaded', function() {
+    var emailInput = document.getElementById('mailerlite-email');
+    var formStartTracked = false;
+    function trackFormStart() {
+      if (formStartTracked) return;
+      formStartTracked = true;
+
+      trackMetaCustomEvent('FreePracticeFormStart', {
+        form_id: '41481387'
+      });
+      trackGoogleEvent('form_start', {
+        form_id: '41481387',
+        form_name: 'free_practice_form'
+      });
+    }
+
+    if (emailInput) {
+      emailInput.addEventListener('focus', trackFormStart, { once: true });
+      emailInput.addEventListener('input', trackFormStart, { once: true });
+    }
+
     document.querySelectorAll('[data-checkout-link]').forEach(function(link) {
       link.addEventListener('click', function(event) {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -581,7 +617,7 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
     });
   });
 </script>
-<script src="assets/js/main.js?v=20260602-1"></script>
+<script src="assets/js/main.js?v=20260615-1"></script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
 <script>
   fetch("https://assets.mailerlite.com/jsonp/2360637/forms/187881635271673818/takel");

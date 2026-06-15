@@ -98,6 +98,11 @@ document.querySelectorAll('.mirror-item').forEach((m,i) => m.style.transitionDel
         link_url: event && event.currentTarget ? event.currentTarget.href : '#free-practice'
       });
     }
+    if(typeof window.trackMetaCustomEvent === 'function') {
+      window.trackMetaCustomEvent('FreePracticeClick', {
+        link_text: event && event.currentTarget ? event.currentTarget.textContent.trim() : ''
+      });
+    }
     previousFocus = document.activeElement;
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');

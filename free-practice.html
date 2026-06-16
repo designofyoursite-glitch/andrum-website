@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free SOS Practice - Andrum</title>
+<link rel="icon" type="image/png" href="assets/images/fav.png">
+<link rel="apple-touch-icon" href="assets/images/fav.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,wght@0,300;0,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260520-1">
+<meta name="facebook-domain-verification" content="3xx6dzc41m1uela67o3lx78pn9i4a4" />
+<style>
+  body.free-practice-page {
+    background:
+      linear-gradient(135deg, rgba(245,240,235,0.98), rgba(237,232,226,0.92)),
+      url("assets/images/team-photo.jpg") center/cover fixed;
+  }
+  .free-page-main {
+    position: relative;
+    z-index: 1;
+  }
+  .free-page-hero {
+    min-height: 96vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
+    gap: clamp(36px, 6vw, 84px);
+    align-items: center;
+    padding: 132px 56px 64px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .free-page-copy {
+    max-width: 720px;
+  }
+  .free-page-eyebrow,
+  .free-section-tag {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate-d);
+    margin-bottom: 22px;
+  }
+  .free-page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    line-height: 0.98;
+    font-size: clamp(52px, 8.2vw, 112px);
+    margin-bottom: 28px;
+    letter-spacing: 0;
+  }
+  .free-page-title em {
+    font-style: italic;
+    color: var(--slate-d);
+  }
+  .free-page-sub {
+    max-width: 560px;
+    color: var(--text-mid);
+    font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.55;
+  }
+  .free-page-form-card {
+    background: rgba(255,255,255,0.78);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    padding: clamp(24px, 4vw, 36px);
+    box-shadow: 0 24px 72px rgba(44,44,42,0.13);
+    backdrop-filter: blur(12px);
+  }
+  .free-page-form-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .free-page-form-card p {
+    color: var(--text-mid);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .free-page-note {
+    display: block;
+    color: var(--text-soft);
+    font-size: 12px;
+    line-height: 1.55;
+    margin-top: 14px;
+  }
+  .free-page-trust-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .free-page-trust-row span {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-mid);
+    font-size: 11px;
+    line-height: 1.3;
+    padding: 8px 9px;
+    text-align: center;
+    background: rgba(255,255,255,0.42);
+  }
+  .free-page-section {
+    padding: clamp(72px, 10vw, 116px) 56px;
+  }
+  .free-page-inner {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .free-page-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    line-height: 1.05;
+    font-size: clamp(38px, 5vw, 66px);
+    margin-bottom: 28px;
+  }
+  .free-page-section p {
+    color: var(--text-mid);
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.75;
+    max-width: 760px;
+  }
+  .free-page-section p + p {
+    margin-top: 18px;
+  }
+  .free-page-cta-row {
+    margin-top: 32px;
+  }
+  .free-page-steps,
+  .free-page-cards {
+    display: grid;
+    gap: 14px;
+    margin-top: 34px;
+  }
+  .free-page-step,
+  .free-page-card {
+    background: rgba(255,255,255,0.58);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px 24px;
+  }
+  .free-page-step {
+    color: var(--text-mid);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .free-page-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .free-page-card h3 {
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+  .free-page-card p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .free-page-audio {
+    max-width: 620px;
+    margin-top: 34px;
+  }
+  .free-page-final {
+    text-align: center;
+    padding-bottom: 128px;
+  }
+  .free-page-final .free-page-inner {
+    max-width: 760px;
+  }
+  .free-page-final p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .free-page-safety {
+    color: var(--text-soft);
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 760px;
+    margin-top: 26px;
+  }
+  @media(max-width: 860px) {
+    body.free-practice-page nav {
+      padding: 16px 20px;
+    }
+    .free-page-hero {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      min-height: 100vh;
+      align-content: start;
+      padding: 86px 20px 28px;
+    }
+    .free-page-eyebrow,
+    .free-section-tag {
+      font-size: 10px;
+      margin-bottom: 10px;
+    }
+    .free-page-title {
+      font-size: clamp(38px, 12vw, 48px);
+      line-height: 0.96;
+      margin-bottom: 14px;
+    }
+    .free-page-sub {
+      font-size: 15px;
+      line-height: 1.42;
+    }
+    .free-page-form-card {
+      padding: 18px;
+    }
+    .free-page-form-card h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+    .free-page-form-card p {
+      font-size: 14px;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .free-page-form-card .mailerlite-form-slot {
+      padding: 12px;
+    }
+    .free-page-form-card #mlb2-41481387 input[type="email"] {
+      padding: 13px 14px;
+      margin-bottom: 10px;
+    }
+    .free-page-form-card #mlb2-41481387 .ml-form-embedSubmit button {
+      padding: 14px 18px;
+      font-size: 12px;
+    }
+    .free-page-trust-row {
+      margin-top: 10px;
+    }
+    .free-page-trust-row span {
+      font-size: 10px;
+      padding: 7px 6px;
+    }
+    .free-page-note {
+      font-size: 11px;
+      line-height: 1.45;
+      margin-top: 10px;
+    }
+    .free-page-section {
+      padding: 72px 24px;
+    }
+    .free-page-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media(max-width: 480px) and (max-height: 720px) {
+    body.free-practice-page nav {
+      padding: 12px 18px;
+    }
+    .free-page-hero {
+      gap: 12px;
+      padding: 68px 18px 22px;
+    }
+    .free-page-title {
+      font-size: clamp(34px, 10.5vw, 40px);
+      margin-bottom: 10px;
+    }
+    .free-page-sub {
+      font-size: 14px;
+      line-height: 1.34;
+    }
+    .free-page-form-card {
+      padding: 14px;
+    }
+    .free-page-form-card h2 {
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+    .free-page-form-card p {
+      font-size: 13px;
+      line-height: 1.36;
+      margin-bottom: 10px;
+    }
+    .free-page-form-card .mailerlite-form-slot {
+      padding: 10px;
+    }
+    .free-page-form-card #mlb2-41481387 input[type="email"] {
+      padding: 11px 12px;
+      margin-bottom: 8px;
+    }
+    .free-page-form-card #mlb2-41481387 .ml-form-embedSubmit button {
+      padding: 12px 14px;
+    }
+    .free-page-note {
+      margin-top: 8px;
+    }
+  }
+</style>
+<!-- Google tag (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SE2VTYM7L8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SE2VTYM7L8');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1745914763452751');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
+/></noscript>
+</head>
+<body class="free-practice-page">
+<canvas id="particles-canvas"></canvas>
+
+<nav>
+  <a href="index.html" class="logo" aria-label="Andrum home">
+    <img src="assets/images/andrum-logo.svg" alt="Andrum">
+  </a>
+  <div class="nav-links">
+    <a href="#preview" class="nav-link">Preview</a>
+    <a href="#after" class="nav-link">After signup</a>
+    <a href="#free-practice" class="nav-cta">Open practice</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-backdrop" id="menu-backdrop"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-tag">Andrum</div>
+    <nav class="mobile-nav-links">
+      <a href="#preview" class="mobile-nav-link">Preview</a>
+      <a href="#after" class="mobile-nav-link">After signup</a>
+      <a href="#free-practice" class="mobile-nav-link">Open practice</a>
+    </nav>
+  </div>
+</div>
+
+<main class="free-page-main">
+  <section class="free-page-hero" id="free-practice">
+    <div class="free-page-copy reveal">
+      <div class="free-page-eyebrow">Free 6-minute SOS practice</div>
+      <h1 class="free-page-title">He hasn't replied.<br><em>And suddenly it feels like proof: "I'm too much."</em></h1>
+      <p class="free-page-sub">It was just silence. But your body read it as rejection. Open the free 6-minute practice before you text again.</p>
+    </div>
+
+    <div class="free-page-form-card reveal">
+      <div class="free-section-tag">Get the free practice</div>
+      <h2>Open the practice now.</h2>
+      <p>Enter your email and go straight to the free 6-minute practice. No card. Opens immediately after signup.</p>
+      <div class="mailerlite-form-slot">
+        <div id="mlb2-41481387" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41481387">
+          <div class="ml-form-align-center">
+            <div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2360637/forms/187881635271673818/subscribe" data-code="" method="post" target="_blank">
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow ml-last-item">
+                      <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                        <label class="sr-only" for="mailerlite-email">Email</label>
+                        <input id="mailerlite-email" aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email">
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit">
+                    <button type="submit" class="primary">Open the free practice</button>
+                    <button disabled="disabled" style="display: none;" type="button" class="loading">
+                      <span class="ml-form-embedSubmitLoad"></span>
+                      <span class="sr-only">Loading...</span>
+                    </button>
+                  </div>
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
+              </div>
+              <div class="ml-form-successBody row-success" style="display: none">
+                <div class="ml-form-successContent">
+                  <h4>Opening the practice...</h4>
+                  <p>You will be redirected in a moment.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="free-page-trust-row" aria-label="Free practice details">
+        <span>6 minutes</span>
+        <span>No card</span>
+        <span>Instant access</span>
+      </div>
+      <span class="free-page-note">By signing up, you agree to receive Andrum emails. You can unsubscribe anytime.</span>
+    </div>
+  </section>
+
+  <section class="free-page-section">
+    <div class="free-page-inner reveal">
+      <div class="free-section-tag">Right now</div>
+      <h2>This is for the moment "he hasn't replied" turns into "I'm too much."</h2>
+      <p>You keep checking even though nothing has changed.</p>
+      <p>Your chest is tight. Your stomach drops every time the screen lights up.</p>
+      <p>One part of you knows silence is not proof. Another part is already writing the story: I was too much. I ruined it. He is pulling away.</p>
+      <p>You do not need to solve the relationship in the next six minutes. You just need your body to stop treating this moment like an emergency.</p>
+      <div class="free-page-cta-row">
+        <a href="#free-practice" class="btn-primary">Open the free practice</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="free-page-section" id="preview">
+    <div class="free-page-inner reveal">
+      <div class="free-section-tag">Hear it first</div>
+      <h2>A calm voice. One breath at a time.</h2>
+      <p>Not a lesson. Not a lecture about attachment. Just a guided practice you can follow when your mind is moving too fast to help you.</p>
+      <div class="audio-box free-page-audio">
+        <div class="audio-tag">20-second preview</div>
+        <div class="audio-title">Practice 1 - After a Triggering Message</div>
+        <div class="preview-player" data-audio-player>
+          <button class="preview-play" type="button" data-audio-toggle aria-label="Play audio preview">
+            <span class="preview-play-icon" aria-hidden="true"></span>
+          </button>
+          <div class="preview-player-body">
+            <div class="preview-player-top">
+              <span>Listen now</span>
+              <span data-audio-time>0:00 / 0:00</span>
+            </div>
+            <div class="preview-progress" data-audio-seek role="slider" aria-label="Audio progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+              <div class="preview-progress-fill" data-audio-progress></div>
+            </div>
+          </div>
+          <audio class="audio-player" preload="metadata">
+            <source src="assets/audio/sos-practice-preview.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="free-page-section" id="after">
+    <div class="free-page-inner reveal">
+      <div class="free-section-tag">After signup</div>
+      <h2>What happens after you press the button.</h2>
+      <div class="free-page-steps">
+        <div class="free-page-step">You go straight to the free practice page.</div>
+        <div class="free-page-step">The practice is about 6 minutes long.</div>
+        <div class="free-page-step">You can do it sitting, standing, lying down, or from the bathroom floor if that is where you are.</div>
+        <div class="free-page-step">No card. No choosing from a long library.</div>
+        <div class="free-page-step">After the practice, you can decide if you want the full SOS pack. Not before.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="free-page-section">
+    <div class="free-page-inner reveal">
+      <div class="free-section-tag">What it helps with</div>
+      <h2>For the silence spiral.</h2>
+      <div class="free-page-cards">
+        <div class="free-page-card">
+          <h3>The stomach drop</h3>
+          <p>When you see no reply and your body reacts before you can think.</p>
+        </div>
+        <div class="free-page-card">
+          <h3>The "I'm too much" thought</h3>
+          <p>When your mind turns one unanswered message into proof that you were wrong, needy, intense, or impossible to love.</p>
+        </div>
+        <div class="free-page-card">
+          <h3>The urge to fix it</h3>
+          <p>When your hand is already on the phone and you want to send something just to make the panic stop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="free-page-section">
+    <div class="free-page-inner reveal">
+      <div class="free-section-tag">Why this works</div>
+      <h2>You cannot think your way out of a body alarm.</h2>
+      <p>When relationship anxiety hits, your body can move faster than your logic. Your heart rate changes. Your breath gets shallow. Your attention locks onto the phone.</p>
+      <p>That is why the practice starts with the body, not with advice. A guided breathing rhythm gives your nervous system a different signal first. Then you may have enough space to decide what actually needs to happen next.</p>
+    </div>
+  </section>
+
+  <section class="free-page-section">
+    <div class="free-page-inner reveal">
+      <div class="free-section-tag">Andrum</div>
+      <h2>Made for anxious attachment moments, not generic stress.</h2>
+      <p>Andrum SOS Practices are short guided breathwork audios for the moments when close relationships hit the nervous system hard: silence, jealousy, shame, racing thoughts, freeze, anger, and the desperate urge to reach out.</p>
+      <p>The free practice is the first one: anxiety after a message or conversation. Start there.</p>
+      <p class="free-page-safety">Andrum practices are body-based self-support tools, not therapy, medical care, or crisis support. If breathwork feels uncomfortable, return to natural breathing and pause. If you feel unsafe or at risk of harming yourself, contact local emergency support or a mental health professional.</p>
+    </div>
+  </section>
+
+  <section class="free-page-section free-page-final">
+    <div class="free-page-inner reveal">
+      <h2>Before you text again, take six minutes with your body.</h2>
+      <p>No card. Opens immediately after signup.</p>
+      <div class="free-page-cta-row">
+        <a href="#free-practice" class="btn-primary">Open the practice now</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <a href="index.html" class="logo footer-logo" aria-label="Andrum home">
+    <img src="assets/images/andrum-logo.svg" alt="Andrum">
+  </a>
+  <div class="footer-links">
+    <a href="legal/privacy-policy.html">Privacy</a>
+    <a href="legal/terms-of-use.html">Terms of Use</a>
+    <a href="legal/terms-of-sale.html">Terms of Sale</a>
+    <a href="legal/refund-policy.html">Refunds</a>
+    <a href="legal/medical-psychological-disclaimer.html">Disclaimer</a>
+    <a href="legal/cookie-policy.html">Cookies</a>
+    <a href="mailto:hello@andrum.space">Contact</a>
+  </div>
+</footer>
+
+<script>
+  function trackGoogleEvent(eventName, params, callback) {
+    if (typeof window.gtag !== 'function') {
+      if (typeof callback === 'function') callback();
+      return false;
+    }
+
+    var eventParams = Object.assign({
+      event_category: 'engagement',
+      page_location: window.location.href,
+      page_title: document.title
+    }, params || {});
+
+    if (typeof callback === 'function') {
+      var callbackWasCalled = false;
+      eventParams.event_callback = function() {
+        if (callbackWasCalled) return;
+        callbackWasCalled = true;
+        callback();
+      };
+      eventParams.event_timeout = 800;
+    }
+
+    window.gtag('event', eventName, eventParams);
+    return true;
+  }
+
+  function trackMetaLeadOnce() {
+    if (window.__andrumMetaLeadTracked) return false;
+    window.__andrumMetaLeadTracked = true;
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead');
+      return true;
+    }
+    return false;
+  }
+
+  function trackMetaCustomEvent(eventName, params) {
+    if (typeof window.fbq !== 'function') return false;
+    window.fbq('trackCustom', eventName, params || {});
+    return true;
+  }
+
+  function ml_webform_success_41481387() {
+    var leadTracked = trackMetaLeadOnce();
+    var redirectStarted = false;
+    var redirectToFreePractice = function() {
+      if (redirectStarted) return;
+      redirectStarted = true;
+
+      trackMetaCustomEvent('RedirectToPractice', {
+        destination: 'teachable_free_practice',
+        form_id: '41481387',
+        landing_page: 'free-practice'
+      });
+      trackGoogleEvent('redirect_to_practice', {
+        destination: 'teachable_free_practice',
+        form_id: '41481387',
+        landing_page: 'free-practice'
+      });
+
+      try {
+        window.top.location.href = 'https://andrumspace.teachable.com/courses/sos-practices-collection-of-7-guided-breathwork-audios/lectures/65814234';
+      } catch (e) {
+        window.location.href = 'https://andrumspace.teachable.com/courses/sos-practices-collection-of-7-guided-breathwork-audios/lectures/65814234';
+      }
+    };
+
+    trackGoogleEvent('email_submitted', {
+      method: 'mailerlite',
+      form_id: '41481387',
+      landing_page: 'free-practice'
+    }, function() {
+      setTimeout(redirectToFreePractice, leadTracked ? 150 : 0);
+    });
+  }
+  window.ml_webform_success_41481387 = ml_webform_success_41481387;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var emailInput = document.getElementById('mailerlite-email');
+    var formStartTracked = false;
+    function trackFormStart() {
+      if (formStartTracked) return;
+      formStartTracked = true;
+      trackMetaCustomEvent('FreePracticeFormStart', {
+        form_id: '41481387',
+        landing_page: 'free-practice'
+      });
+      trackGoogleEvent('form_start', {
+        form_id: '41481387',
+        form_name: 'free_practice_form',
+        landing_page: 'free-practice'
+      });
+    }
+    if (emailInput) {
+      emailInput.addEventListener('focus', trackFormStart, { once: true });
+      emailInput.addEventListener('input', trackFormStart, { once: true });
+    }
+    document.querySelectorAll('a[href="#free-practice"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        trackMetaCustomEvent('FreePracticeClick', {
+          link_text: link.textContent.trim(),
+          landing_page: 'free-practice'
+        });
+        trackGoogleEvent('free_practice_click', {
+          link_text: link.textContent.trim(),
+          landing_page: 'free-practice'
+        });
+      });
+    });
+  });
+</script>
+<script src="assets/js/main.js?v=20260615-1"></script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
+<script>
+  fetch("https://assets.mailerlite.com/jsonp/2360637/forms/187881635271673818/takel");
+</script>
+</body>
+</html>

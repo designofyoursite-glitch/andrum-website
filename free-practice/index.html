@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="../assets/images/fav.png">
 <link rel="apple-touch-icon" href="../assets/images/fav.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,wght@0,300;0,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=20260520-1">
+<link rel="stylesheet" href="../assets/css/styles.css?v=20260618-1">
 <meta name="facebook-domain-verification" content="3xx6dzc41m1uela67o3lx78pn9i4a4" />
 <style>
   body.free-practice-page {
@@ -19,18 +19,27 @@
     position: relative;
     z-index: 1;
   }
+  body.free-practice-page .btn-primary,
+  body.free-practice-page .btn-outline,
+  body.free-practice-page .nav-cta,
+  body.free-practice-page #mlb2-41481387 .ml-form-embedSubmit button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
   .free-page-hero {
     min-height: 96vh;
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
-    gap: clamp(36px, 6vw, 84px);
+    grid-template-columns: minmax(0, 0.98fr) minmax(380px, 0.68fr);
+    gap: clamp(44px, 5vw, 72px);
     align-items: center;
-    padding: 132px 56px 64px;
-    max-width: 1180px;
+    padding: 124px 56px 64px;
+    max-width: 1120px;
     margin: 0 auto;
   }
   .free-page-copy {
-    max-width: 720px;
+    max-width: 620px;
   }
   .free-page-eyebrow,
   .free-section-tag {
@@ -44,8 +53,8 @@
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     line-height: 0.98;
-    font-size: clamp(52px, 8.2vw, 112px);
-    margin-bottom: 28px;
+    font-size: clamp(56px, 5.7vw, 82px);
+    margin-bottom: 24px;
     letter-spacing: 0;
   }
   .free-page-title em {
@@ -53,9 +62,9 @@
     color: var(--slate-d);
   }
   .free-page-sub {
-    max-width: 560px;
+    max-width: 520px;
     color: var(--text-mid);
-    font-size: clamp(18px, 2vw, 23px);
+    font-size: clamp(18px, 1.5vw, 21px);
     line-height: 1.55;
   }
   .free-page-form-card {
@@ -431,15 +440,11 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
 
   <section class="free-page-section">
     <div class="free-page-inner reveal">
-      <div class="free-section-tag">Right now</div>
-      <h2>Then your mind starts filling in the silence.</h2>
-      <p>Maybe he is pulling away. Maybe you said too much. Maybe one message changed everything.</p>
-      <p>You keep checking even though nothing has changed. Your chest is tight. Your stomach drops every time the screen lights up.</p>
-      <p>Part of you wants to send something right now, just to find your footing again. Another part knows you do not want your fear to write the next message.</p>
-      <p>You do not need to solve the relationship in the next seven minutes. You need a small space before fear decides for you.</p>
-      <div class="free-page-cta-row">
-        <a href="#free-practice" class="btn-primary">Open the free practice</a>
-      </div>
+      <div class="free-section-tag">What is happening</div>
+      <h2>When the spiral becomes “what did I do wrong?”</h2>
+      <p>Maybe they pulled away. Maybe one message changed everything. Maybe a conversation left something unsettled in your body.</p>
+      <p>We’ve been there. And we found that the hardest part is not always what happened.</p>
+      <p>It is how quickly your mind turns it into a story about you: maybe you said too much, needed too much, asked for too much, or somehow became too hard to love. But there is nothing wrong with you.</p>
     </div>
   </section>
 
@@ -469,6 +474,7 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
       <div class="free-section-tag">Hear it first</div>
       <h2>A calm voice. One breath at a time.</h2>
       <p>Not a lesson. Not a lecture about attachment. Just a guided practice you can follow when your mind is moving too fast to help you.</p>
+      <p>This practice helps your body find enough space to stay with yourself while the wave moves through.</p>
       <div class="audio-box free-page-audio">
         <div class="audio-tag">20-second preview</div>
         <div class="audio-title">Practice 1 - After a Triggering Message</div>
@@ -489,6 +495,9 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
             <source src="../assets/audio/sos-practice-preview.mp3" type="audio/mpeg">
           </audio>
         </div>
+      </div>
+      <div class="free-page-cta-row">
+        <a href="#free-practice" class="btn-primary">Listen to the full practice free</a>
       </div>
     </div>
   </section>
@@ -571,8 +580,25 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
 </footer>
 
 <script>
+  function isTrackingDebugEnabled() {
+    var debugParams = new URLSearchParams(window.location.search);
+    return (
+      debugParams.get('debug_mode') === 'true' ||
+      debugParams.get('ga_debug') === '1' ||
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1' ||
+      window.location.protocol === 'file:'
+    );
+  }
+
+  function logTrackingDebug(label, payload) {
+    if (!isTrackingDebugEnabled() || !window.console || typeof window.console.info !== 'function') return;
+    window.console.info('[Andrum tracking]', label, payload || {});
+  }
+
   function trackGoogleEvent(eventName, params, callback) {
     if (typeof window.gtag !== 'function') {
+      logTrackingDebug('ga4_missing:' + eventName, params);
       if (typeof callback === 'function') callback();
       return false;
     }
@@ -583,42 +609,58 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
       page_title: document.title
     }, params || {});
 
+    if (isTrackingDebugEnabled()) {
+      eventParams.debug_mode = true;
+    }
+
     if (typeof callback === 'function') {
       var callbackWasCalled = false;
+      var fallbackTimer = setTimeout(function() {
+        if (callbackWasCalled) return;
+        callbackWasCalled = true;
+        callback();
+      }, 900);
       eventParams.event_callback = function() {
         if (callbackWasCalled) return;
         callbackWasCalled = true;
+        clearTimeout(fallbackTimer);
         callback();
       };
       eventParams.event_timeout = 800;
     }
 
     window.gtag('event', eventName, eventParams);
+    logTrackingDebug('ga4:' + eventName, eventParams);
     return true;
   }
+  window.trackGoogleEvent = trackGoogleEvent;
 
   function trackMetaLeadOnce() {
     if (window.__andrumMetaLeadTracked) return false;
     window.__andrumMetaLeadTracked = true;
     if (typeof window.fbq === 'function') {
       window.fbq('track', 'Lead');
+      logTrackingDebug('meta:Lead', {});
       return true;
     }
+    logTrackingDebug('meta_missing:Lead', {});
     return false;
   }
+  window.trackMetaLeadOnce = trackMetaLeadOnce;
 
   function trackMetaCustomEvent(eventName, params) {
     if (typeof window.fbq !== 'function') return false;
     window.fbq('trackCustom', eventName, params || {});
+    logTrackingDebug('meta:' + eventName, params || {});
     return true;
   }
+  window.trackMetaCustomEvent = trackMetaCustomEvent;
 
   function ml_webform_success_41481387() {
     var leadTracked = trackMetaLeadOnce();
-    var redirectStarted = false;
     var redirectToFreePractice = function() {
-      if (redirectStarted) return;
-      redirectStarted = true;
+      if (window.__andrumFreePracticeRedirectStarted) return;
+      window.__andrumFreePracticeRedirectStarted = true;
 
       trackMetaCustomEvent('RedirectToPractice', {
         destination: 'teachable_free_practice',
@@ -638,6 +680,12 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
       }
     };
 
+    if (window.__andrumEmailSubmittedTracked) {
+      redirectToFreePractice();
+      return;
+    }
+    window.__andrumEmailSubmittedTracked = true;
+
     trackGoogleEvent('email_submitted', {
       method: 'mailerlite',
       form_id: '41481387',
@@ -650,7 +698,36 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
 
   document.addEventListener('DOMContentLoaded', function() {
     var emailInput = document.getElementById('mailerlite-email');
+    var freePracticeForm = document.querySelector('#mlb2-41481387 form');
     var formStartTracked = false;
+    var scrollDepths = [25, 50, 75, 90];
+    var trackedScrollDepths = {};
+
+    function getScrollPercent() {
+      var scrollableHeight = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight
+      ) - window.innerHeight;
+
+      if (scrollableHeight <= 0) return 100;
+
+      return Math.min(100, Math.round((window.scrollY / scrollableHeight) * 100));
+    }
+
+    function trackScrollDepth() {
+      var scrollPercent = getScrollPercent();
+
+      scrollDepths.forEach(function(depth) {
+        if (trackedScrollDepths[depth] || scrollPercent < depth) return;
+        trackedScrollDepths[depth] = true;
+
+        trackGoogleEvent('scroll_' + depth, {
+          percent_scrolled: depth,
+          landing_page: 'free-practice'
+        });
+      });
+    }
+
     function trackFormStart() {
       if (formStartTracked) return;
       formStartTracked = true;
@@ -668,6 +745,19 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
       emailInput.addEventListener('focus', trackFormStart, { once: true });
       emailInput.addEventListener('input', trackFormStart, { once: true });
     }
+    if (freePracticeForm) {
+      freePracticeForm.addEventListener('submit', function() {
+        trackMetaCustomEvent('FreePracticeSubmitClick', {
+          form_id: '41481387',
+          landing_page: 'free-practice'
+        });
+        trackGoogleEvent('free_practice_submit_click', {
+          form_id: '41481387',
+          form_name: 'free_practice_form',
+          landing_page: 'free-practice'
+        });
+      });
+    }
     document.querySelectorAll('a[href="#free-practice"]').forEach(function(link) {
       link.addEventListener('click', function() {
         trackMetaCustomEvent('FreePracticeClick', {
@@ -680,6 +770,9 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
         });
       });
     });
+    trackScrollDepth();
+    window.addEventListener('scroll', trackScrollDepth, { passive: true });
+    window.addEventListener('resize', trackScrollDepth);
   });
 </script>
 <script src="../assets/js/main.js?v=20260615-1"></script>

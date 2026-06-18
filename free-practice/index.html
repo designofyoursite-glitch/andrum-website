@@ -149,6 +149,26 @@
   .free-page-cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .free-page-moments {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 34px;
+  }
+  .free-page-moment {
+    background: rgba(255,255,255,0.58);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-mid);
+    font-size: 13px;
+    line-height: 1.35;
+    min-height: 74px;
+    padding: 14px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
   .free-page-card h3 {
     font-size: 17px;
     font-weight: 400;
@@ -246,6 +266,12 @@
     }
     .free-page-cards {
       grid-template-columns: 1fr;
+    }
+    .free-page-moments {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .free-page-moment {
+      min-height: 58px;
     }
   }
   @media(max-width: 480px) and (max-height: 720px) {
@@ -356,9 +382,9 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
     </div>
 
     <div class="free-page-form-card reveal">
-      <div class="free-section-tag">Get the free practice</div>
-      <h2>Open the practice now.</h2>
-      <p>Enter your email and go straight to the free 6-minute practice. No card. Opens immediately after signup.</p>
+      <div class="free-section-tag">Practice 01 of 7</div>
+      <h2>Start with the first one free.</h2>
+      <p>A 6-minute SOS audio for the moment he has not replied. Enter your email and open it now. No card.</p>
       <div class="mailerlite-form-slot">
         <div id="mlb2-41481387" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41481387">
           <div class="ml-form-align-center">
@@ -396,7 +422,7 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
       </div>
       <div class="free-page-trust-row" aria-label="Free practice details">
         <span>6 minutes</span>
-        <span>No card</span>
+        <span>First of 7</span>
         <span>Instant access</span>
       </div>
       <span class="free-page-note">By signing up, you agree to receive Andrum emails. You can unsubscribe anytime.</span>
@@ -406,13 +432,34 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
   <section class="free-page-section">
     <div class="free-page-inner reveal">
       <div class="free-section-tag">Right now</div>
-      <h2>This is for the moment "he hasn't replied" turns into "I'm too much."</h2>
-      <p>You keep checking even though nothing has changed.</p>
-      <p>Your chest is tight. Your stomach drops every time the screen lights up.</p>
-      <p>One part of you knows silence is not proof. Another part is already writing the story: I was too much. I ruined it. He is pulling away.</p>
-      <p>You do not need to solve the relationship in the next six minutes. You just need your body to stop treating this moment like an emergency.</p>
+      <h2>Then your mind starts filling in the silence.</h2>
+      <p>Maybe he is pulling away. Maybe you said too much. Maybe one message changed everything.</p>
+      <p>You keep checking even though nothing has changed. Your chest is tight. Your stomach drops every time the screen lights up.</p>
+      <p>Part of you wants to send something right now, just to find your footing again. Another part knows you do not want your fear to write the next message.</p>
+      <p>You do not need to solve the relationship in the next six minutes. You need a small space before fear decides for you.</p>
       <div class="free-page-cta-row">
         <a href="#free-practice" class="btn-primary">Open the free practice</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="free-page-section">
+    <div class="free-page-inner reveal">
+      <div class="free-section-tag">What it supports</div>
+      <h2>For the moment silence pulls you away from yourself.</h2>
+      <div class="free-page-cards">
+        <div class="free-page-card">
+          <h3>The stomach drop</h3>
+          <p>When you see no reply and your body reacts before you can think.</p>
+        </div>
+        <div class="free-page-card">
+          <h3>The "I'm too much" thought</h3>
+          <p>When your mind turns one unanswered message into proof that you were wrong, needy, intense, or impossible to love.</p>
+        </div>
+        <div class="free-page-card">
+          <h3>The urge to fix it</h3>
+          <p>When your hand is already on the phone because sending something feels like the only way to get your ground back.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -451,32 +498,28 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
       <div class="free-section-tag">After signup</div>
       <h2>What happens after you press the button.</h2>
       <div class="free-page-steps">
-        <div class="free-page-step">You go straight to the free practice page.</div>
+        <div class="free-page-step">You go straight to Practice 01 for free.</div>
         <div class="free-page-step">The practice is about 6 minutes long.</div>
         <div class="free-page-step">You can do it sitting, standing, lying down, or from the bathroom floor if that is where you are.</div>
         <div class="free-page-step">No card. No choosing from a long library.</div>
-        <div class="free-page-step">After the practice, you can decide if you want the full SOS pack. Not before.</div>
+        <div class="free-page-step">After that, you will also see the full Andrum SOS set: 7 short practices for the other moments anxious attachment takes over.</div>
       </div>
     </div>
   </section>
 
   <section class="free-page-section">
     <div class="free-page-inner reveal">
-      <div class="free-section-tag">What it helps with</div>
-      <h2>For the silence spiral.</h2>
-      <div class="free-page-cards">
-        <div class="free-page-card">
-          <h3>The stomach drop</h3>
-          <p>When you see no reply and your body reacts before you can think.</p>
-        </div>
-        <div class="free-page-card">
-          <h3>The "I'm too much" thought</h3>
-          <p>When your mind turns one unanswered message into proof that you were wrong, needy, intense, or impossible to love.</p>
-        </div>
-        <div class="free-page-card">
-          <h3>The urge to fix it</h3>
-          <p>When your hand is already on the phone and you want to send something just to make the panic stop.</p>
-        </div>
+      <div class="free-section-tag">The full SOS set</div>
+      <h2>One free practice now. Six more for the other moments.</h2>
+      <p>This page gives you Practice 01 for free: anxiety after a message or conversation. The full Andrum SOS set includes 7 short guided audios for the states that tend to come after the same pattern.</p>
+      <div class="free-page-moments" aria-label="Seven SOS practice moments">
+        <div class="free-page-moment">Message anxiety</div>
+        <div class="free-page-moment">Racing thoughts</div>
+        <div class="free-page-moment">Shame / not enough</div>
+        <div class="free-page-moment">Jealousy</div>
+        <div class="free-page-moment">Urge to text</div>
+        <div class="free-page-moment">Freeze / numbness</div>
+        <div class="free-page-moment">Anger</div>
       </div>
     </div>
   </section>
@@ -484,28 +527,29 @@ src="https://www.facebook.com/tr?id=1745914763452751&ev=PageView&noscript=1"
   <section class="free-page-section">
     <div class="free-page-inner reveal">
       <div class="free-section-tag">Why this works</div>
-      <h2>You cannot think your way out of a body alarm.</h2>
+      <h2>This is not about needing less.</h2>
       <p>When relationship anxiety hits, your body can move faster than your logic. Your heart rate changes. Your breath gets shallow. Your attention locks onto the phone.</p>
-      <p>That is why the practice starts with the body, not with advice. A guided breathing rhythm gives your nervous system a different signal first. Then you may have enough space to decide what actually needs to happen next.</p>
+      <p>The practice does not ask you to talk yourself out of wanting connection. It gives your body a rhythm to follow so there is a little space between the trigger and what you do next.</p>
+      <p>The goal is not to make you need less. The goal is to help you return to the part of you that can choose.</p>
     </div>
   </section>
 
   <section class="free-page-section">
     <div class="free-page-inner reveal">
       <div class="free-section-tag">Andrum</div>
-      <h2>Made for anxious attachment moments, not generic stress.</h2>
-      <p>Andrum SOS Practices are short guided breathwork audios for the moments when close relationships hit the nervous system hard: silence, jealousy, shame, racing thoughts, freeze, anger, and the desperate urge to reach out.</p>
-      <p>The free practice is the first one: anxiety after a message or conversation. Start there.</p>
+      <h2>Made for the moment you lose contact with yourself.</h2>
+      <p>Andrum SOS Practices are short guided breathwork audios for the moments when close relationships pull you out of your own center: silence, jealousy, shame, racing thoughts, freeze, anger, and the desperate urge to reach out.</p>
+      <p>They are not here to erase what you feel. They are here to help you come back to yourself inside it. The free practice is the first one: anxiety after a message or conversation. Start there.</p>
       <p class="free-page-safety">Andrum practices are body-based self-support tools, not therapy, medical care, or crisis support. If breathwork feels uncomfortable, return to natural breathing and pause. If you feel unsafe or at risk of harming yourself, contact local emergency support or a mental health professional.</p>
     </div>
   </section>
 
   <section class="free-page-section free-page-final">
     <div class="free-page-inner reveal">
-      <h2>Before you text again, take six minutes with your body.</h2>
-      <p>No card. Opens immediately after signup.</p>
+      <h2>Before fear writes the next message, take six minutes with your body.</h2>
+      <p>Start with Practice 01. No card. Opens immediately after signup.</p>
       <div class="free-page-cta-row">
-        <a href="#free-practice" class="btn-primary">Open the practice now</a>
+        <a href="#free-practice" class="btn-primary">Open the free practice</a>
       </div>
     </div>
   </section>

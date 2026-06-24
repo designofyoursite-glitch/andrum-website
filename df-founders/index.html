@@ -16,7 +16,7 @@
         --text: #222222;
         --muted: rgba(34, 34, 34, 0.5);
         --photo-size: 260px;
-        --card-gap: 10px;
+        --card-overlap: -20px;
         --mobile-scroll-distance: 0px;
         --mobile-scroll-x: 0px;
       }
@@ -88,7 +88,7 @@
       }
 
       .founder-card:not(:last-child) {
-        margin-right: var(--card-gap);
+        margin-right: var(--card-overlap);
       }
 
       .founder-card__photo {
@@ -182,7 +182,7 @@
       @media (max-width: 820px) {
         :root {
           --photo-size: 180px;
-          --card-gap: 10px;
+          --card-overlap: -14px;
         }
 
         .founders {
@@ -221,6 +221,18 @@
         .founder-card {
           width: var(--caption-width, var(--photo-size));
           flex-basis: var(--caption-width, var(--photo-size));
+        }
+
+        .founder-card:not(:last-child) {
+          margin-right: 10px;
+        }
+
+        .founder-card__photo--sasha {
+          transform: translateX(-49px);
+        }
+
+        .founder-card__photo--nastya {
+          transform: translateX(-95px);
         }
 
         .founder-card__caption {

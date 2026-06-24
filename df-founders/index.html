@@ -16,7 +16,7 @@
         --text: #222222;
         --muted: rgba(34, 34, 34, 0.5);
         --photo-size: 260px;
-        --card-overlap: -20px;
+        --card-gap: 10px;
         --mobile-scroll-distance: 0px;
         --mobile-scroll-x: 0px;
       }
@@ -45,6 +45,10 @@
       .page-spacer {
         height: 1000px;
         background: var(--bg);
+      }
+
+      .page-spacer--top {
+        height: 400px;
       }
 
       .founders__content {
@@ -84,7 +88,7 @@
       }
 
       .founder-card:not(:last-child) {
-        margin-right: var(--card-overlap);
+        margin-right: var(--card-gap);
       }
 
       .founder-card__photo {
@@ -125,7 +129,7 @@
 
       .founder-card__caption {
         width: 100%;
-        height: 76px;
+        height: 95px;
         margin-top: 20px;
         overflow: hidden;
         display: flex;
@@ -148,6 +152,12 @@
         font-size: 12px;
         font-weight: 400;
         line-height: 1.4;
+        display: -webkit-box;
+        min-height: 68px;
+        max-height: 68px;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
       }
 
       .founder-card__link {
@@ -172,7 +182,7 @@
       @media (max-width: 820px) {
         :root {
           --photo-size: 180px;
-          --card-overlap: -14px;
+          --card-gap: 10px;
         }
 
         .founders {
@@ -193,6 +203,13 @@
           overflow: hidden;
         }
 
+        .founders__title {
+          align-self: flex-start;
+          width: 100%;
+          font-size: 20px;
+          text-align: left;
+        }
+
         .founders__list {
           align-self: flex-start;
           width: max-content;
@@ -201,24 +218,19 @@
           will-change: transform;
         }
 
+        .founder-card {
+          width: var(--caption-width, var(--photo-size));
+          flex-basis: var(--caption-width, var(--photo-size));
+        }
+
         .founder-card__caption {
-          height: auto;
-          min-height: 92px;
-          gap: 7px;
+          height: 95px;
+          gap: 5px;
         }
 
         .founder-card__name,
         .founder-card__description {
           width: 100%;
-        }
-
-        .founder-card__description {
-          display: -webkit-box;
-          min-height: calc(4em * 1.4);
-          max-height: calc(4em * 1.4);
-          overflow: hidden;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 4;
         }
       }
 
@@ -233,7 +245,7 @@
     </style>
   </head>
   <body>
-    <div class="page-spacer" aria-hidden="true"></div>
+    <div class="page-spacer page-spacer--top" aria-hidden="true"></div>
 
     <section class="founders" aria-labelledby="founders-title">
       <div class="founders__content">
@@ -270,7 +282,7 @@
             <a class="founder-card__link" href="#">[ Узнать историю ]</a>
           </article>
 
-          <article class="founder-card" style="--caption-width: 251px">
+          <article class="founder-card" style="--caption-width: 210px">
             <figure class="founder-card__photo founder-card__photo--nastya">
               <img src="assets/founder-nastya.jpg" alt="Настя" />
             </figure>
